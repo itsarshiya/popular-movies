@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Extendable functions and definitions
  *
@@ -8,7 +9,7 @@
  * @since Extendable 1.0
  */
 
-if ( ! function_exists( 'extendable_support' ) ) :
+if (!function_exists('extendable_support')) :
 
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
@@ -17,18 +18,19 @@ if ( ! function_exists( 'extendable_support' ) ) :
 	 *
 	 * @return void
 	 */
-	function extendable_support() {
+	function extendable_support()
+	{
 
 		// Add support for block styles.
-		add_theme_support( 'wp-block-styles' );
+		add_theme_support('wp-block-styles');
 
 		// Enqueue editor styles.
-		add_editor_style( 'style.css' );
+		add_editor_style('style.css');
 
 		// Register WooCommerce theme features.
-		add_theme_support( 'wc-product-gallery-zoom' );
-		add_theme_support( 'wc-product-gallery-lightbox' );
-		add_theme_support( 'wc-product-gallery-slider' );
+		add_theme_support('wc-product-gallery-zoom');
+		add_theme_support('wc-product-gallery-lightbox');
+		add_theme_support('wc-product-gallery-slider');
 		add_theme_support(
 			'woocommerce',
 			array(
@@ -36,14 +38,13 @@ if ( ! function_exists( 'extendable_support' ) ) :
 				'single_image_width'    => 600,
 			)
 		);
-
 	}
 
 endif;
 
-add_action( 'after_setup_theme', 'extendable_support' );
+add_action('after_setup_theme', 'extendable_support');
 
-if ( ! function_exists( 'extendable_styles' ) ) :
+if (!function_exists('extendable_styles')) :
 
 	/**
 	 * Enqueue styles.
@@ -52,12 +53,13 @@ if ( ! function_exists( 'extendable_styles' ) ) :
 	 *
 	 * @return void
 	 */
-	function extendable_styles() {
+	function extendable_styles()
+	{
 
 		// Register theme stylesheet.
-		$theme_version = wp_get_theme()->get( 'Version' );
+		$theme_version = wp_get_theme()->get('Version');
 
-		$version_string = is_string( $theme_version ) ? $theme_version : false;
+		$version_string = is_string($theme_version) ? $theme_version : false;
 		wp_register_style(
 			'extendable-style',
 			get_template_directory_uri() . '/style.css',
@@ -66,13 +68,12 @@ if ( ! function_exists( 'extendable_styles' ) ) :
 		);
 
 		// Enqueue theme stylesheet.
-		wp_enqueue_style( 'extendable-style' );
-
+		wp_enqueue_style('extendable-style');
 	}
 
 endif;
 
-add_action( 'wp_enqueue_scripts', 'extendable_styles' );
+add_action('wp_enqueue_scripts', 'extendable_styles');
 
 /**
  * Registers pattern categories.
@@ -81,10 +82,11 @@ add_action( 'wp_enqueue_scripts', 'extendable_styles' );
  *
  * @return void
  */
-function extendable_register_pattern_categories() {
+function extendable_register_pattern_categories()
+{
 	$block_pattern_categories = array(
-		'header' => array( 'label' => __( 'Headers', 'extendable' ) ),
-		'footer' => array( 'label' => __( 'Footers', 'extendable' ) ),
+		'header' => array('label' => __('Headers', 'extendable')),
+		'footer' => array('label' => __('Footers', 'extendable')),
 	);
 
 	/**
@@ -102,20 +104,19 @@ function extendable_register_pattern_categories() {
 	 *     }
 	 * }
 	 */
-	$block_pattern_categories = apply_filters( 'extendable_block_pattern_categories', $block_pattern_categories );
+	$block_pattern_categories = apply_filters('extendable_block_pattern_categories', $block_pattern_categories);
 
-	foreach ( $block_pattern_categories as $name => $properties ) {
-		if ( ! WP_Block_Pattern_Categories_Registry::get_instance()->is_registered( $name ) ) {
-			register_block_pattern_category( $name, $properties );
+	foreach ($block_pattern_categories as $name => $properties) {
+		if (!WP_Block_Pattern_Categories_Registry::get_instance()->is_registered($name)) {
+			register_block_pattern_category($name, $properties);
 		}
 	}
-
 }
-add_action( 'init', 'extendable_register_pattern_categories', 9 );
+add_action('init', 'extendable_register_pattern_categories', 9);
 
-if ( ! function_exists( 'is_woocommerce_activated' ) ) {
+if (!function_exists('is_woocommerce_activated')) {
 	// This theme does not have a traditional sidebar.
-	remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
+	remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar', 10);
 
 	/**
 	 * Alter the queue for WooCommerce styles and scripts.
@@ -126,10 +127,11 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 	 *
 	 * @return array
 	 */
-	function extendable_woocommerce_enqueue_styles( $styles ) {
+	function extendable_woocommerce_enqueue_styles($styles)
+	{
 		// Get a theme version for cache busting.
-		$theme_version = wp_get_theme()->get( 'Version' );
-		$version_string = is_string( $theme_version ) ? $theme_version : false;
+		$theme_version = wp_get_theme()->get('Version');
+		$version_string = is_string($theme_version) ? $theme_version : false;
 
 		// Add Extendable's WooCommerce styles.
 		$styles['extendable-woocommerce'] = array(
@@ -140,7 +142,43 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 			'has_rtl' => true,
 		);
 
-		return apply_filters( 'woocommerce_extendable_styles', $styles );
+		return apply_filters('woocommerce_extendable_styles', $styles);
 	}
-	add_filter( 'woocommerce_enqueue_styles', 'extendable_woocommerce_enqueue_styles' );
+	add_filter('woocommerce_enqueue_styles', 'extendable_woocommerce_enqueue_styles');
 }
+
+function get_popular_movies()
+{
+
+
+	$response = wp_remote_get('https://api.themoviedb.org/3/movie/popular?api_key=f016cd23c8935f21b46ed635c2cdaee0&language=en-US&page=1');
+	// $body     = wp_remote_retrieve_body($response);
+	$json = json_decode( $response['body'] );
+
+	$data = json_encode((array)$json);
+    error_log($data->result);
+
+	global $wpdb;
+	$table_name = $wpdb->prefix . 'movies';
+
+	$wpdb->insert($table_name, array('column_1' => $data_1, 'column_2' => $data_2,));
+
+	// $hostName = "localhost";
+	// $userName = "root";
+	// $password = "root";
+	// // Create connection
+	// $con = mysqli_connect($host, $username, $password);
+	// // Check connection
+	// if (!$conn) {
+	// 	die("Connection failed: " . mysqli_connect_error());
+	// }
+	// echo 'Connected successfully';
+
+	// mysql_select_db("netvlies", $con);
+
+
+
+
+	// mysqli_close($con);
+}
+add_action('get_popular_movies_cron', 'get_popular_movies');
