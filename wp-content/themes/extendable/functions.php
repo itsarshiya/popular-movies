@@ -149,36 +149,41 @@ if (!function_exists('is_woocommerce_activated')) {
 
 function get_popular_movies()
 {
-
-
+	//get 20 most popular movies (api call)
 	$response = wp_remote_get('https://api.themoviedb.org/3/movie/popular?api_key=f016cd23c8935f21b46ed635c2cdaee0&language=en-US&page=1');
-	// $body     = wp_remote_retrieve_body($response);
-	$json = json_decode( $response['body'] );
-
-	$data = json_encode((array)$json);
-    error_log($data->result);
-
+	
+	//init database connection
 	global $wpdb;
+
+	//set tablename with wp prefix
 	$table_name = $wpdb->prefix . 'movies';
 
-	$wpdb->insert($table_name, array('column_1' => $data_1, 'column_2' => $data_2,));
+	//empty table before inserting new data
+	$wpdb->query("TRUNCATE TABLE $table_name");
+	
+	//decode response to json object
+	$json = json_decode($response['body']);
 
-	// $hostName = "localhost";
-	// $userName = "root";
-	// $password = "root";
-	// // Create connection
-	// $con = mysqli_connect($host, $username, $password);
-	// // Check connection
-	// if (!$conn) {
-	// 	die("Connection failed: " . mysqli_connect_error());
-	// }
-	// echo 'Connected successfully';
+	//for each movie insert in database
+	foreach ($json->results as $movie) {
+		$wpdb->insert($table_name, array(
+			'adult' => $movie->adult, 
+			'backdrop_path' => $movie->backdrop_path,
 
-	// mysql_select_db("netvlies", $con);
-
-
-
-
-	// mysqli_close($con);
+			//serialize array of genres
+			'genre_ids' => serialize($movie->genre_ids),
+			'id' => $movie->id,
+			'original_language' => $movie->original_language,
+			'original_title' => $movie->original_title,
+			'overview' => $movie->overview,
+			'popularity' => $movie->popularity,
+			'poster_path' => $movie->poster_path,
+			'release_date' => $movie->release_date,
+			'title' => $movie->title,
+			'video' => $movie->video,
+			'vote_average' => $movie->vote_average,
+			'vote_count' => $movie->vote_count,
+		));
+	}
 }
 add_action('get_popular_movies_cron', 'get_popular_movies');
