@@ -187,3 +187,17 @@ function get_popular_movies()
 	}
 }
 add_action('get_popular_movies_cron', 'get_popular_movies');
+
+function get_genres()
+{
+	$response = wp_remote_get('https://api.themoviedb.org/3/genre/movie/list?api_key=f016cd23c8935f21b46ed635c2cdaee0&language=en-US ');
+	
+	//decode response to json object
+	$json = json_decode($response['body']);
+
+	//for each genre insert in taxonomy
+	foreach ($json->genres as $genre) {
+		wp_insert_term($genre->name, 'movie_genre', array('description'=>$genre->name,'slug'=>$genre->id));
+	}
+}
+add_action('get_popular_movies_cron', 'get_genres');
