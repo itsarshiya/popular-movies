@@ -1,22 +1,5 @@
 <h2><?php esc_html_e( 'Security by SiteGround' ); ?></h2>
 <table class="form-table">
-<?php 
-	// Check if we have backup codes and print the table.
-	if ( ! empty( $backup_codes ) ) :
-?>
-<tr>
-	<th>
-		<label for="user_location"><?php esc_html_e( '2FA Backup Codes', 'sg-security' ); ?></label>
-	</th>
-	<td>
-		<textarea name="sg_security_2fa_backup_codes" id="sg_security_2fa_backup_codes" disabled="disabled" class="regular-text" rows="8" cols="20" ><?php echo implode( "\n", $backup_codes ); ?></textarea>
-		<p class="description"><?php esc_html_e('In case you lose or change your phone and you no longer have access to the Authenticator app, you can use one of the codes below to log in.', 'sg-security' ); ?>
-			<b><?php esc_html_e( 'Save the codes to make sure that you don\'t end up locked out of this website.', 'sg-security' );?></b>
-			<?php esc_html_e( 'Each code can only be used once.' , 'sg-security' ); ?>
-		</p>
-	</td>
-</tr>
-<?php endif; ?>
 <?php
 	// Check if we have a secret and print it.
 	if ( ! empty( $secret ) ):

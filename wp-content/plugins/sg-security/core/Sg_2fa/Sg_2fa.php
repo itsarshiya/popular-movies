@@ -131,24 +131,9 @@ class Sg_2fa {
 
 			$session_tokens = WP_Session_Tokens::get_instance( $user->data->ID );
 			$session_tokens->destroy_all();
-
-			$this->enable_2fa_for_user( $user->data->ID );
 		}
 
 		return true;
-	}
-
-	/**
-	 * Enable the 2FA for an user.
-	 *
-	 * @since 1.1.1
-	 *
-	 * @param int $user_id The user ID.
-	 */
-	public function enable_2fa_for_user( $user_id ) {
-		$this->generate_user_secret( $user_id );
-		$this->generate_user_qr( $user_id );
-		$this->generate_user_backup_codes( $user_id );
 	}
 
 	/**
@@ -234,15 +219,17 @@ class Sg_2fa {
 
 		// Bail if the user already has a backup codes.
 		if ( ! empty( $backup_codes ) ) {
-			return $user_id;
+			return array();
 		}
 
-		// Add the user backup_codes meta.
-		return update_user_meta( // phpcs:ignore
-			$user_id,
-			'sg_security_2fa_backup_codes',
-			$this->recovery->numeric()->setCount( 8 )->setBlocks( 1 )->setChars( 8 )->toArray() // Generate the backup codes.
-		);
+		// Generate the backup codes.
+		$generated_backup_codes = $this->recovery->numeric()->setCount( 8 )->setBlocks( 1 )->setChars( 8 )->toArray();
+
+		// Store the backup codes hashed.
+		$this->store_hashed_user_meta( $user_id, 'sg_security_2fa_backup_codes', $generated_backup_codes );
+
+		// Return the codes so we can show them to the user once.
+		return $generated_backup_codes;
 	}
 
 	/**
@@ -263,47 +250,21 @@ class Sg_2fa {
 			return false;
 		}
 
-		$key = array_search( $code, $codes );
+		// Validate the backup code.
+		foreach ( $codes as $index => $hashed_code ) {
+			if ( wp_check_password( $code, $hashed_code ) ) {
+				// Remove the used key.
+				unset( $codes[ $index ] );
+
+				// Update user meta with the removed code data.
+				update_user_meta( $user, 'sg_security_2fa_backup_codes', $codes );
+
+				return true;
+			}
+		}
 
 		// Bail if the code doesn't exists in the user backup codes.
-		if ( false === $key ) {
-			return false;
-		}
-
-		// Remove the used key.
-		unset( $codes[ $key ] );
-
-		// Add additional backup codes to the user meta, if the user has used 4 or more backup codes.
-		$this->maybe_add_additional_backup_codes( $codes, $user );
-
-		return true;
-	}
-
-	/**
-	 * Adds additional backup codes to the user meta, if the user has used 4 or more backup codes.
-	 *
-	 * @since  1.1.0
-	 *
-	 * @param  array $codes   Existing user backup codes.
-	 * @param  int   $user_id The user ID.
-	 */
-	public function maybe_add_additional_backup_codes( $codes, $user_id ) {
-		// Add additional backup codes to the user meta.
-		if ( 5 > count( $codes ) ) {
-			$codes = array_merge(
-				$codes, // The existing codes.
-				$this->recovery->numeric()->setCount( 4 )->setBlocks( 1 )->setChars( 8 )->toArray() // Generate 4 new backup codes.
-			);
-
-			// Set a flag that additional codes have been generated, so we can show an admin notice to the user.
-			update_user_meta( $user_id, 'sgs_additional_codes_added', 1 ); // phpcs:ignore
-		}
-
-		update_user_meta( // phpcs:ignore
-			$user_id,
-			'sg_security_2fa_backup_codes',
-			$codes
-		);
+		return false;
 	}
 
 	/**
@@ -314,53 +275,18 @@ class Sg_2fa {
 	 * @param object $user WP_User object.
 	 */
 	public function show_profile_security( $user ) {
-		// Get the users backup codes.
-		$backup_codes = get_user_meta( $user->ID, 'sg_security_2fa_backup_codes', true ); // phpcs:ignore
-
 		// Get the user secret code.
 		$secret = get_user_meta( $user->ID, 'sg_security_2fa_secret', true ); // phpcs:ignore
-
 		// Get the user QR code.
 		$qr = get_user_meta( $user->ID, 'sg_security_2fa_qr', true ); // phpcs:ignore
 
-		// Bail if we do not have backup codes and secret.
-		if ( empty( $backup_codes ) && empty( $secret ) ) {
+		// Bail if we do not have a secret and qr.
+		if ( empty( $secret ) || empty( $qr ) ) {
 			return;
 		}
 
 		// Include the Security by SiteGround heading.
 		include_once SG_Security\DIR . '/templates/2fa-user-profile-section.php';
-	}
-
-	/**
-	 * Displays an admin notice that additional backup codes have been generated.
-	 *
-	 * @since  1.1.0
-	 */
-	public function show_backup_codes_notice() {
-		$current_user = wp_get_current_user();
-
-		if ( empty( get_user_meta( $current_user->data->ID, 'sgs_additional_codes_added', true ) ) ) { // phpcs:ignore
-			return;
-		}
-		?>
-		<div class="notice notice-success" style="position: relative">
-			<p>
-				<?php _e( 'There are new 2FA backup codes available. Visit <a href="' . get_edit_profile_url( $current_user->data->ID ) . '">your profile page</a> to view them.', 'sg-security' ); ?>
-			</p>
-		</div>
-		<?php
-	}
-
-	/**
-	 * Dismiss notice handle.
-	 *
-	 * @since  1.1.0
-	 */
-	public function dismiss_backup_codes_notice() {
-		$current_user = wp_get_current_user();
-
-		delete_user_meta( $current_user->data->ID, 'sgs_additional_codes_added' ); // phpcs:ignore
 	}
 
 	/**
@@ -441,9 +367,6 @@ class Sg_2fa {
 		foreach ( $clear_meta as $meta ) {
 			delete_user_meta( $user_id, 'sg_security_2fa_' . $meta ); // phpcs:ignore
 		}
-
-		// Add the required 2fa user metas.
-		$this->enable_2fa_for_user( $user_id );
 
 		return array(
 			'message' => __( 'User 2FA reset!', 'sg-security' ),
@@ -528,7 +451,7 @@ class Sg_2fa {
 		// 2FA user cookie name.
 		$sg_2fa_user_cookie = 'sg_security_2fa_dnc_cookie';
 
-		// Bail if the cookie doens't exists.
+		// Bail if the cookie doesn't exists.
 		if ( ! isset( $_COOKIE[ $sg_2fa_user_cookie ] ) ) {
 			return false;
 		}
@@ -558,7 +481,7 @@ class Sg_2fa {
 		$this->load_form(
 			array(
 				'template'     => 'backup-codes.php',
-				'backup_codes' => get_user_meta( $user_id, 'sg_security_2fa_backup_codes', true ), // phpcs:ignore
+				'backup_codes' => $this->generate_user_backup_codes( $user_id ),
 				'redirect_to'  => ! empty( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : get_admin_url(), // phpcs:ignore
 			)
 		);
@@ -574,10 +497,11 @@ class Sg_2fa {
 	public function show_qr_backup_code_used( $id ) {
 		$this->load_form(
 			array(
-				'template'    => 'backup-code-used.php',
-				'qr'          => get_user_meta( wp_unslash( $id ), 'sg_security_2fa_qr', true ), // phpcs:ignore
-				'secret'      => get_user_meta( wp_unslash( $id ), 'sg_security_2fa_secret', true ), // phpcs:ignore
-				'redirect_to' => ! empty( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : get_admin_url(), // phpcs:ignore
+				'template'     => 'backup-code-used.php',
+				'qr'           => get_user_meta( wp_unslash( $id ), 'sg_security_2fa_qr', true ), // phpcs:ignore
+				'secret'       => get_user_meta( wp_unslash( $id ), 'sg_security_2fa_secret', true ), // phpcs:ignore
+				'redirect_to'  => ! empty( $_POST['redirect_to'] ) ? $_POST['redirect_to'] : get_admin_url(), // phpcs:ignore
+				'backup_codes' => $this->generate_user_backup_codes( $id ),
 			)
 		);
 	}
@@ -620,11 +544,6 @@ class Sg_2fa {
 			return;
 		}
 
-		// Bail if the user doesn't have secret.
-		if ( empty( get_user_meta( $user->ID, 'sg_security_2fa_secret', true ) ) ) { // phpcs:ignore
-			return;
-		}
-
 		// Bail if there is a valid 2FA cookie.
 		if ( true === $this->check_2fa_cookie( $user_login, $user ) ) {
 			return;
@@ -649,6 +568,10 @@ class Sg_2fa {
 				)
 			);
 		}
+
+		// Generate user secret and QR.
+		$this->generate_user_secret( $user->ID );
+		$this->generate_user_qr( $user->ID );
 
 		// Load the 2fa form.
 		$this->load_form(
@@ -870,5 +793,35 @@ class Sg_2fa {
 		);
 
 		return $users;
+	}
+
+	/**
+	 * Stores a hashed user meta.
+	 *
+	 * @since 1.3.2
+	 *
+	 * @param  int     $user_id  The user ID
+	 * @param  string  $meta     The user meta
+	 * @param  array   $data     The data to be hashed
+	 *
+	 * @return int|bool Meta ID if the key didn't exist, true on successful update, false on failure.
+	 */
+	public function store_hashed_user_meta( $user_id, $meta, $data = array() ) {
+		// Bail if data is not an array.
+		if ( ! is_array( $data ) ) {
+			return false;
+		}
+
+		// Prepare the array.
+		$hashed_data = array();
+
+		// Hash the data.
+		foreach ( $data as $key => $value ) {
+			$hashed_value = wp_hash_password( $value );
+			$hashed_data[] = $hashed_value;
+		}
+
+		// Add the user hashed meta.
+		return update_user_meta( $user_id, $meta, $hashed_data );
 	}
 }

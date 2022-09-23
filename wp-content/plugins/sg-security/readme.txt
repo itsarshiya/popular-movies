@@ -210,6 +210,11 @@ In version 1.0.2 we've added full WP-CLI support for all plugin options and func
 
 == Changelog ==
 
+= Version 1.3.2 =
+Release Date: Sept 21st, 2022
+
+* 2FA Backup codes security strengthening
+
 = Version 1.3.1 =
 Release Date: Sept 13th, 2022
 

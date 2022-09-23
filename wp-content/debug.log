@@ -46,3 +46,83 @@
 [20-Sep-2022 23:09:05 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
 [20-Sep-2022 23:09:12 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
 [20-Sep-2022 23:09:12 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:39:43 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:39:43 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:22 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:22 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:38 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:38 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:42 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:42 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:45 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:45 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:51 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:40:51 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:17 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:17 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:24 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:24 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:32 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:32 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:36 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:36 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:56 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:41:56 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7556
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7568
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7576
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7576
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7576
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7581
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7582
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7586
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7829
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\nav-menu.php on line 1086
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\theme.php on line 3514
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 20
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 25
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 29
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_title" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 118
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 72
+[23-Sep-2022 10:42:03 UTC] WordPress database error Column 'object_id' cannot be null for query INSERT INTO `wp_sgs_log_events` (`visitor_id`, `ts`, `activity`, `description`, `ip`, `hostname`, `code`, `object_id`, `type`, `action`, `visitor_type`) VALUES (1, 1663929723, 'Updated ', 'Updated  - ', '127.0.0.1', 'laptop', 200, NULL, 'post', 'update', 'user') made by WP_Posts_List_Table->prepare_items, wp_edit_posts_query, wp, WP->main, do_action_ref_array('wp'), WP_Hook->do_action, WP_Hook->apply_filters, insert_movies_movie_cpt, wp_insert_post, wp_transition_post_status, do_action('transition_post_status'), WP_Hook->do_action, WP_Hook->apply_filters, SG_Security\Activity_Log\Activity_Log_Posts->log_post_status_transition, SG_Security\Activity_Log\Activity_Log_Helper->log_event, SG_Security\Activity_Log\Activity_Log_Helper->insert
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\theme.php on line 3739
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 5361
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 5361
+[23-Sep-2022 10:42:03 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 4662
+[23-Sep-2022 10:42:04 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:42:04 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:42:10 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:42:10 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:42:36 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:42:36 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7556
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7568
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7576
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7576
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7576
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7581
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7582
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7586
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 7829
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\nav-menu.php on line 1086
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\theme.php on line 3514
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 20
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 25
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 29
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_title" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 118
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-content\plugins\sg-security\core\Activity_Log\Activity_Log_Posts.php on line 72
+[23-Sep-2022 10:42:57 UTC] WordPress database error Column 'object_id' cannot be null for query INSERT INTO `wp_sgs_log_events` (`visitor_id`, `ts`, `activity`, `description`, `ip`, `hostname`, `code`, `object_id`, `type`, `action`, `visitor_type`) VALUES (1, 1663929777, 'Updated ', 'Updated  - ', '127.0.0.1', 'laptop', 200, NULL, 'post', 'update', 'user') made by WP_Posts_List_Table->prepare_items, wp_edit_posts_query, wp, WP->main, do_action_ref_array('wp'), WP_Hook->do_action, WP_Hook->apply_filters, insert_movies_movie_cpt, wp_insert_post, wp_transition_post_status, do_action('transition_post_status'), WP_Hook->do_action, WP_Hook->apply_filters, SG_Security\Activity_Log\Activity_Log_Posts->log_post_status_transition, SG_Security\Activity_Log\Activity_Log_Helper->log_event, SG_Security\Activity_Log\Activity_Log_Helper->insert
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\theme.php on line 3739
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 5361
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "ID" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 5361
+[23-Sep-2022 10:42:57 UTC] PHP Warning:  Attempt to read property "post_type" on null in C:\MAMP\htdocs\netvlies\wp-includes\post.php on line 4662
+[23-Sep-2022 10:42:59 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:42:59 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:46:06 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:46:06 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:46:12 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:46:12 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:46:16 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:46:16 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:46:20 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275
+[23-Sep-2022 10:46:20 UTC] PHP Notice:  ob_end_flush(): Failed to send buffer of zlib output compression (1) in C:\MAMP\htdocs\netvlies\wp-includes\functions.php on line 5275

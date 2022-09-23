@@ -358,11 +358,8 @@ class Loader {
 		add_action( 'login_form_sgs2fa', array( $this->sg_2fa, 'validate_2fa_login' ) );
 		add_action( 'login_form_sgs2fabc', array( $this->sg_2fa, 'validate_2fabc_login' ) );
 		add_action( 'login_form_load_sgs2fabc', array( $this->sg_2fa, 'load_backup_codes_form' ) );
-		add_action( 'user_register', array( $this->sg_2fa, 'enable_2fa_for_user' ), 1 );
 		add_action( 'show_user_profile', array( $this->sg_2fa, 'show_profile_security' ), 10, 1 );
 		add_action( 'edit_user_profile', array( $this->sg_2fa, 'show_profile_security' ), 10, 1 );
-		add_action( 'admin_notices', array( $this->sg_2fa, 'show_backup_codes_notice' ) );
-		add_action( 'admin_print_scripts-profile.php', array( $this->sg_2fa, 'dismiss_backup_codes_notice' ) );
 	}
 
 	/**
