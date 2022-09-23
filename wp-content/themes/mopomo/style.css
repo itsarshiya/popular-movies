@@ -1,4 +1,4 @@
-/*
+/* /*
 mopomo
 */
 @font-face {
@@ -13,6 +13,18 @@ mopomo
     src: url('fonts/tango.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        width: 95vw !important;
+        padding-top: 18vh !important;
+    }
+    .header {
+        flex-direction: column;
+        height: 17vh !important;
+    }
+    
 }
 
 html,
@@ -36,6 +48,8 @@ body {
     height: 95vh;
     width: 75vw;
     padding-top: 12vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .header {
@@ -89,6 +103,7 @@ body {
     font-size: 1.3em;
     align-items: center;
     justify-content: center;
+    gap: 10px;
 }
 
 .movie-card {
@@ -100,4 +115,18 @@ body {
 
 .movie-title {
     font-family: 'tango_bold';
+}
+
+.search {
+    border: 3px solid black;
+    border-radius: 16px;
+    padding: 10px;
+    margin-bottom: 16px;
+    /* flex: 1; */
+    
+}
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
